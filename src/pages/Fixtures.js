@@ -4,7 +4,8 @@ import Fixture from '../components/fixture/Fixture'
 function Fixtures() {
   return (
     <>
-        <Fixture />
+        {/* <Fixture /> */}
+        
     </>
   )
 }

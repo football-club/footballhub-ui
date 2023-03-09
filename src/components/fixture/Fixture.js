@@ -1,4 +1,8 @@
 import './style/Fixtures.css'
+import LeagueTable from '../table/LeagueTable';
+import FilterTable from '../table/FilterTable';
+
+
 
 function Fixtures(){
     return(
@@ -7,7 +11,10 @@ function Fixtures(){
          <div id="col-1">
             
             <div className="table">
-            PL table
+            <div>
+            <FilterTable/>
+            </div>
+            <LeagueTable />
             </div>
         </div>
         <div id="col-2">
@@ -17,6 +24,7 @@ function Fixtures(){
             </div>
         </div>
         </>
+
     )
 }
 
