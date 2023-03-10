@@ -1,8 +1,8 @@
 import NavBar from "./components/Navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import News from "./components/news/News";
-import Predictions from "./components/prediction/Prediction";
-import Fixtures from "./components/fixture/Fixture";
+import Predictions from "./pages/Predictions";
+import Fixtures from "./pages/Fixtures";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from "./pages/Home";
 
@@ -13,8 +13,8 @@ function App() {
       <BrowserRouter>
         <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/predictions" element={<Predictions />}></Route>
         <Route path="/fixture" element={<Fixtures />}></Route>
+        <Route path="/predictions" element={<Predictions />}></Route>
         </Routes>
       </BrowserRouter>
     </>
