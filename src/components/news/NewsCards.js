@@ -1,6 +1,8 @@
 import Card from 'react-bootstrap/Card';
 import img from "./media/logo.png"
 import CardGroup from 'react-bootstrap/CardGroup';
+import './NewCard.css'
+
 
 function NewsCard() {
   return (
@@ -8,7 +10,7 @@ function NewsCard() {
           <Card>
             <Card.Img variant="top" src={img} />
             <Card.Body>
-              <Card.Title>Chelsea is the best</Card.Title>
+              <Card.Title>title</Card.Title>
               <Card.Text>
                 hehe just kidding
               </Card.Text>
