@@ -3,8 +3,10 @@ import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import banner from "../news/media/pl_rainbow_badge_banner.jpg";
-import { CardActionArea, CardHeader, Grid } from "@mui/material";
+import { CardActionArea, CardHeader, Grid, IconButton } from "@mui/material";
 import matchesMock from "../mockData/matchesMock.json";
+import Avatar from "@material-ui/core/Avatar";
+import arsenal from "../news/media/clubLogo/arsenal.png";
 
 function Matches({ props }) {
   return (
@@ -36,8 +38,8 @@ function Matches({ props }) {
                   justifyContent: "space-between",
                 }}
               >
-                {matches?.Matches?.map((index, match) => (
-                  <MatchPost key={index} />
+                {matches?.Matches?.map((match) => (
+                  <MatchPost key={match.id} props={match} />
                 ))}
               </CardContent>
             </Card>
@@ -48,24 +50,32 @@ function Matches({ props }) {
   );
 }
 
-function MatchPost(props) {
-  const { post } = props;
-
+function MatchPost({ props }) {
+  const post = props;
   return (
     <Grid item xs={12} md={6} xxl={4}>
       <CardActionArea component="a" href="#">
         <Card sx={{ display: "flex" }}>
-          <CardContent sx={{ flex: 1 }}>
-            <Typography component="h2" variant="h5">
-              {post?.title} placeholder
-            </Typography>
-            <Typography variant="subtitle1" color="text.secondary">
-              {post?.date} date
-            </Typography>
-            <Typography variant="subtitle1" paragraph>
-              {post?.description} description
-            </Typography>
-          </CardContent>
+          <div>
+            <CardHeader
+              avatar={<Avatar alt="club logo" src={arsenal} />}
+              action={
+                <IconButton aria-label="settings" disabled>
+                  {post.HomeTeamScore}
+                </IconButton>
+              }
+              title={post.HomeTeam}
+            />
+            <CardHeader
+              avatar={<Avatar>:)</Avatar>}
+              action={
+                <IconButton aria-label="settings" disabled>
+                  {post.AwayTeamScore}
+                </IconButton>
+              }
+              title={post.AwayTeam}
+            />
+          </div>
         </Card>
       </CardActionArea>
     </Grid>
