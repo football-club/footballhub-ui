@@ -1,14 +1,18 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table';
 import data from "../mockData/tableMock"
+import './style/LeagueTable.css'
+import logo from './images/premierLeagueLogo.png'
 
 
 function LeagueTable() {
+  let i = 0
   const DisplayTableData=data.map(
     (info)=>{
-      return(
+      i+=1
+      return i < 10 ? (
         <tr>
-              <td>{info.Club}</td>
+              <td><span className='colorBar'>i</span>{i} &nbsp;&nbsp;&nbsp;{info.Club}</td>
               <td>{info.Pts}</td>
               <td>{info.GD}</td>
               <td>{info.GA}</td>
@@ -19,9 +23,26 @@ function LeagueTable() {
               <td>{info.MP}</td>
             </tr>
       
-  )})
+  ):
+  (
+    <tr>
+          <td><span className='colorBar'>i</span>{i} &nbsp;{info.Club}</td>
+          <td>{info.Pts}</td>
+          <td>{info.GD}</td>
+          <td>{info.GA}</td>
+          <td>{info.GF}</td>
+          <td>{info.L}</td>
+          <td>{info.D}</td>
+          <td>{info.W}</td>
+          <td>{info.MP}</td>
+        </tr>
+  
+)
+
+})
         
   return (
+    <>
     <Table striped>
           <thead>
             <tr>
@@ -42,6 +63,7 @@ function LeagueTable() {
             
           </tbody>
         </Table>
+        </>
   )
 }
 
