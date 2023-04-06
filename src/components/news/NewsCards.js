@@ -1,53 +1,73 @@
 import Card from 'react-bootstrap/Card';
 import img from "./media/logo.png"
 import CardGroup from 'react-bootstrap/CardGroup';
+//import './NewCard.css'
+import news from "../mockData/tableMock.json"
+
+
 
 function NewsCard() {
+  const stl = {
+    div: {
+    marginBottom: "10px",
+    margin: "20px",
+    maxWidth:"300px",
+    //display: "flex",
+    gap: "5rem",
+    flexDirection: 'auto',
+    justifyContent: "space-between",
+    display: "inline-block",
+    flexWrap: "wrap",
+    },
+     card: {
+      marginBottom: "10px",
+      marginLeft: "20px",
+      maxWidth: "auto",
+      display: "flex",
+      gap: "3rem",
+      flexDirection: 'auto',
+      justifyContent: "spaceBetween",
+      display: "flex",
+      flexWrap: "wrap",
+  }
+
+  }
+
+  const displayNews = news.map((infoNews)=>{
   return (
-        <CardGroup>
-          <Card>
+
+        <CardGroup style={stl.div}>
+          <Card style={stl.card}>
             <Card.Img variant="top" src={img} />
             <Card.Body>
-              <Card.Title>Chelsea is the best</Card.Title>
+              <Card.Title>{infoNews.title}</Card.Title>
               <Card.Text>
-                hehe just kidding
+              {infoNews.content}
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
+              <small className="text-muted">{infoNews.updated_at}</small>
             </Card.Footer>
           </Card>
-          <Card>
-            <Card.Img variant="top" src={img} />
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This card has supporting text below as a natural lead-in to
-                additional content.{' '}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img variant="top" src={img} />
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a wider card with supporting text below as a natural lead-in
-                to additional content. This card has even longer content than the
-                first to show that equal height action.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-            
-          </Card>
-          
+    
         </CardGroup>
   );
+})
+return(
+  
+  <CardGroup>
+    
+    <Card style={stl.card}>
+    <div style={stl.div}>
+    {displayNews}
+    </div>
+  </Card>
+  
+  </CardGroup>
+ 
+)
+
 }
 
 export default NewsCard;
+

@@ -1,20 +1,17 @@
-import NewsCard from "./NewsCards";
-import { news } from "../mockData/newsMock.js";
+import NewsCards from "./NewsCards";
 import { useEffect, useState } from "react";
+//import "./News.css"
+import React from "react"
+
 
 export default function News({propsNews}) {
-    const [newsObject, setNewsObjects] = useState([]);
     
-    useEffect(() => {
-        setNewsObjects(news)
-    }, []);
-
+    
+        
 
     return (
-        <>
-            {newsObject?.map((news) => (
-                <NewsCard />
-            ))}
-        </>
+        <React.Fragment >
+            <NewsCards/>
+        </React.Fragment >
     )
 }
